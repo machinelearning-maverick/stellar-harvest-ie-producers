@@ -29,3 +29,8 @@ include = ["stellar_harvest_ie_producers*"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-q --disable-warnings --strict-markers"
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=7.2.0"
+]
