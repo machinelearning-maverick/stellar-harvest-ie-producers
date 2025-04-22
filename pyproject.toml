@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "stellar-harvest-ie-producers"
+version = "0.1.0"
+description = "Ingestion module for real-time data sources (e.g., NOAA SWPC) into Kafka"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+  { name = "Machine Learning Maverick", email = "github@machinelearningmaverick.com" }
+]
+keywords = ["kafka", "producer", "streaming", "swpc", "space-weather"]
+dependencies = [
+  "kafka-python>=2.0.2",
+  "requests>=2.28.1",
+  "pydantic>=1.10.2",
+  "typer[all]>=0.7.0"
+]
+
+[project.scripts]
+sh-producer = "stellar_harvest_ie_producers.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["stellar_harvest_ie_producers*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --disable-warnings --strict-markers"
