@@ -1,8 +1,10 @@
 from typing import List
 from .models import KpIndexRecord
+from stellar_harvest_ie_producers.utils.log_decorators import log_io
 
 # def parse_planetary_kp_index(raw_entries: List[dict]) -> 
 
+@log_io()
 def parse_latest(raw_entries: List[dict]) -> KpIndexRecord:
     """
     Given a list of raw SWPC entries (as dicts), pick the one with the newest time_tag

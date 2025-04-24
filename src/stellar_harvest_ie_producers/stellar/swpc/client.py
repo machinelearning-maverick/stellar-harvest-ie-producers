@@ -1,6 +1,7 @@
 import os
 import requests
 from typing import List, Dict
+from stellar_harvest_ie_producers.utils.log_decorators import log_io
 
 SWCP_KP_INDEX_URL = os.getenv(
     "SWCP_KP_INDEX_URL",
@@ -8,6 +9,7 @@ SWCP_KP_INDEX_URL = os.getenv(
 )
 
 
+@log_io()
 def fetch_planetary_kp_index() -> List[Dict]:
     """
     Fetch the full list of Planetary K-Index entries from NOAA SWPC.
@@ -21,6 +23,7 @@ def fetch_planetary_kp_index() -> List[Dict]:
     return response.json()
 
 
+@log_io()
 def fetch_latest_raw() -> Dict:
     """
     Fetch and return the single most recent K-Index entry as a raw dict.
