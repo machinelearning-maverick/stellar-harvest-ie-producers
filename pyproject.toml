@@ -20,7 +20,7 @@ dependencies = [
 ]
 
 [project.scripts]
-sh-producer = "stellar_harvest_ie_producers.cli:app"
+sh-producer = "stellar_harvest_ie_producers.stellar.swpc.cli:app"
 
 [tool.setuptools.packages.find]
 where = ["src"]
@@ -28,7 +28,9 @@ include = ["stellar_harvest_ie_producers*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = "-q --disable-warnings --strict-markers"
+addopts = "-s -q --disable-warnings --strict-markers"
+log_cli = true
+log_cli_level = "DEBUG"
 
 [project.optional-dependencies]
 dev = [
