@@ -1,5 +1,5 @@
 import typer
-from stellar_harvest_ie_producers.logging_config import setup_logging
+from stellar_harvest_ie_config.logging_config import setup_logging
 from .client import fetch_planetary_kp_index, fetch_latest_raw
 
 app = typer.Typer()

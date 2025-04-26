@@ -1,7 +1,7 @@
 import os
 import requests
 from typing import List, Dict
-from stellar_harvest_ie_producers.utils.log_decorators import log_io
+from stellar_harvest_ie_config.utils.log_decorators import log_io
 
 SWCP_KP_INDEX_URL = os.getenv(
     "SWCP_KP_INDEX_URL",
