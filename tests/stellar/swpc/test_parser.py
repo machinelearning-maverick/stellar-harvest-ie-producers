@@ -1,6 +1,6 @@
 import pytest
 from stellar_harvest_ie_producers.stellar.swpc.parser import parse_latest
-from stellar_harvest_ie_producers.stellar.swpc.models import KpIndexRecord
+from stellar_harvest_ie_models.stellar.swpc.models import KpIndexRecord
 
 def test_parse_latest_correct():
     raw = [

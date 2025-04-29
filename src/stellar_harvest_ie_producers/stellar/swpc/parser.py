@@ -1,5 +1,5 @@
 from typing import List
-from .models import KpIndexRecord
+from stellar_harvest_ie_models.stellar.swpc.models import KpIndexRecord
 from stellar_harvest_ie_config.utils.log_decorators import log_io
 
 # def parse_planetary_kp_index(raw_entries: List[dict]) -> 
