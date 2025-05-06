@@ -11,7 +11,7 @@ class DummyResponse:
         self._json = json_data
         self.status_code = status
 
-    def rise_for_status(self):
+    def raise_for_status(self):
         if self.status_code != 200:
             raise requests.HTTPError(f"Status {self.status_code}")
 

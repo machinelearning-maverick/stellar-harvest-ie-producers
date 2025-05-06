@@ -18,7 +18,7 @@ def fetch_planetary_kp_index() -> List[Dict]:
         A list of raw dicts, each containing keys like 'time_tag', 'kp_index', etc.
     """
     response = requests.get(SWCP_KP_INDEX_URL, timeout=10)
-    response.rise_for_status()
+    response.raise_for_status()
     return response.json()
 
 
