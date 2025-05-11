@@ -9,9 +9,10 @@ def test_parse_latest_planetary_kp_index_correct():
     raw_record = {
         "time_tag": "2025-04-21T23:45:00Z",
         "kp_index": 2,
+        "estimated_kp": 2,
+        "kp": "3M",
         "mid_latitude_kp_index": 3,
         "dst": -24.5,
-        "source": "NOAA",
     }
 
     record = parse_latest_planetary_kp_index(raw_record)

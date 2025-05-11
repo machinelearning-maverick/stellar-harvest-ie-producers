@@ -14,6 +14,8 @@ def test_publish_swpc_record(mocker):
     first_entry = {
         "time_tag": "2025-09-13T00:00:00Z",
         "kp_index": 3,
+        "estimated_kp": 2,
+        "kp": "3M",
         "mid_latitude_kp_index": 2,
         "dst": -5.6,
         "source": "SWPC",
@@ -21,9 +23,8 @@ def test_publish_swpc_record(mocker):
     second_entry = {
         "time_tag": "2025-09-14T00:00:00Z",
         "kp_index": 5,
-        "mid_latitude_kp_index": 4,
-        "dst": -3.2,
-        "source": "SWPC",
+        "estimated_kp": 4,
+        "kp": "0P"
     }
 
     record_entries = [first_entry, second_entry]
@@ -35,11 +36,11 @@ def test_publish_swpc_record(mocker):
         return_value=fake_producer,
     )
     mocker.patch(
-        "stellar_harvest_ie_producers.stellar.swpc.producer.fetch_latest_raw",
+        "stellar_harvest_ie_producers.stellar.swpc.producer.fetch_latest_planetary_kp_index",
         return_value=record_entries,
     )
     mocker.patch(
-        "stellar_harvest_ie_producers.stellar.swpc.producer.parse_latest",
+        "stellar_harvest_ie_producers.stellar.swpc.producer.parse_latest_planetary_kp_index",
         return_value=kp_index_record,
     )
 
