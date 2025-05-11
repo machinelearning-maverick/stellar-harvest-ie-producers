@@ -64,8 +64,8 @@ echo "▶️  Publishing project in $PROJECT_DIR"
 source .venv/bin/activate
 
 # build wheel + sdist
-echo "📦 Building artifacts…"
-pip3 install --quiet build twine
+echo "📦 Installing locally and building artifacts..."
+pip install --quiet -e . build twine
 python3 -m build
 
 # prepare list of files to upload
