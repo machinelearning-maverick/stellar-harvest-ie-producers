@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "stellar-harvest-ie-producers"
-version = "0.1.2"
+version = "0.2.2"
 description = "Ingestion module for real-time data sources (e.g., NOAA SWPC) into Kafka"
 readme = "README.md"
 requires-python = ">=3.11"

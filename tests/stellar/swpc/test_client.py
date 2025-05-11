@@ -1,7 +1,7 @@
 import pytest
 import requests
 from stellar_harvest_ie_producers.stellar.swpc.client import (
-    fetch_planetary_kp_index,
+    fetch_planetary_kp_indexes,
     SWCP_KP_INDEX_URL,
 )
 
@@ -34,7 +34,7 @@ def test_fetch_success(monkeypatch):
 
     monkeypatch.setattr(requests, "get", fake_get)
 
-    result = fetch_planetary_kp_index()
+    result = fetch_planetary_kp_indexes()
     assert isinstance(result, list)
     assert result == sample
 
@@ -46,4 +46,4 @@ def test_fetch_http_error(monkeypatch):
     monkeypatch.setattr(requests, "get", fake_get)
 
     with pytest.raises(requests.HTTPError):
-        fetch_planetary_kp_index()
+        fetch_planetary_kp_indexes()
