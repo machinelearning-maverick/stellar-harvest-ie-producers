@@ -14,6 +14,10 @@ def parse_latest(raw_entries: List[dict]) -> KpIndexRecord:
     if not raw_entries:
         raise ValueError("No entries to parse in NOAA SWPC feed")
 
+    # Validate that all entries are dictionaries
+    if not all(isinstance(entry, dict) for entry in raw_entries):
+        raise ValueError("All entries in raw_entries must be dictionaries")
+
     # find the entry with the max time_tag string
     latest = max(raw_entries, key=lambda e: e["time_tag"])
     return KpIndexRecord(**latest)

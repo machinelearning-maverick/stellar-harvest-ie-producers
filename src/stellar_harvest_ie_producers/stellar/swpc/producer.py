@@ -1,3 +1,5 @@
+from stellar_harvest_ie_config.utils.log_decorators import log_io
+
 from stellar_harvest_ie_stream.clients import get_producer
 from stellar_harvest_ie_stream.settings import settings
 
@@ -5,6 +7,7 @@ from .client import fetch_latest_raw
 from .parser import parse_latest
 
 
+@log_io()
 def publish_swpc_record() -> None:
     """Fetches the latest SWPC record, parse and publishes it to Kafka."""
     producer = get_producer()

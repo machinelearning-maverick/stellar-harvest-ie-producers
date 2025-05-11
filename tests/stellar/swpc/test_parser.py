@@ -31,3 +31,11 @@ def test_parse_latest_correct():
 def test_parse_latest_failure(payload):
     with pytest.raises(Exception):
         parse_latest(payload)
+
+
+def test_parse_latest_invalid_data():
+    raw_entries = ["invalid_entry", {"time_tag": "2025-09-13T00:00:00Z"}]
+    with pytest.raises(
+        ValueError, match="All entries in raw_entries must be dictionaries"
+    ):
+        parse_latest(raw_entries)
