@@ -1,7 +1,9 @@
 import pytest
 from unittest.mock import Mock
 
-from stellar_harvest_ie_producers.stellar.swpc.producer import publish_swpc_record
+from stellar_harvest_ie_producers.stellar.swpc.producer import (
+    publish_latest_planetary_kp_index,
+)
 from stellar_harvest_ie_stream.settings import settings
 from stellar_harvest_ie_models.stellar.swpc.models import KpIndexRecord
 
@@ -42,7 +44,7 @@ def test_publish_swpc_record(mocker):
     )
 
     # call the API
-    publish_swpc_record()
+    publish_latest_planetary_kp_index()
 
     # assertions
     fake_producer.send.assert_called_once_with(settings.swpc_topic, kp_index_record)

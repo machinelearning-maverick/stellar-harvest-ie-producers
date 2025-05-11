@@ -1,6 +1,6 @@
 import typer
 from stellar_harvest_ie_config.logging_config import setup_logging
-from .client import fetch_planetary_kp_index, fetch_latest_raw
+from .client import fetch_planetary_kp_indexes, fetch_latest_planetary_kp_index
 
 app = typer.Typer()
 
@@ -18,12 +18,12 @@ def initialize(ctx: typer.Context):
 @app.command(name="raw-swcp")
 def raw_swpc():
     """Fetch and print all raw K-Index entry from NOAA SWPC."""
-    entries = fetch_planetary_kp_index()
+    entries = fetch_planetary_kp_indexes()
     typer.echo(entries)
 
 
 @app.command(name="latest-raw-swpc")
 def latest_raw_swpc():
     """Fetch and print the latest raw K-Index entry from NOAA SWPC."""
-    entry = fetch_latest_raw()
+    entry = fetch_latest_planetary_kp_index()
     typer.echo(entry)

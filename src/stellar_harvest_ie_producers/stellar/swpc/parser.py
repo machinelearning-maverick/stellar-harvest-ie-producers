@@ -1,23 +1,16 @@
-from typing import List
+from typing import Dict
 from stellar_harvest_ie_models.stellar.swpc.models import KpIndexRecord
 from stellar_harvest_ie_config.utils.log_decorators import log_io
 
 
 @log_io()
-def parse_latest(raw_entries: List[dict]) -> KpIndexRecord:
+def parse_latest_planetary_kp_index(kp_index: Dict) -> KpIndexRecord:
     """
-    Given a list of raw SWPC entries (as dicts), pick the one with the newest time_tag
-    and validate it against our Pydantic model.
+    Given a raw SWPC entity and validate it against our Pydantic model.
     Raises:
-        ValueError if raw_entries is empty or missing required fields.
+        ValueError if kp_index is empty or missing required fields.
     """
-    if not raw_entries:
-        raise ValueError("No entries to parse in NOAA SWPC feed")
+    if not kp_index:
+        raise ValueError("No KP Index to parse from NOAA SWPC")
 
-    # Validate that all entries are dictionaries
-    if not all(isinstance(entry, dict) for entry in raw_entries):
-        raise ValueError("All entries in raw_entries must be dictionaries")
-
-    # find the entry with the max time_tag string
-    latest = max(raw_entries, key=lambda e: e["time_tag"])
-    return KpIndexRecord(**latest)
+    return KpIndexRecord(**kp_index)
