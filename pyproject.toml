@@ -13,11 +13,12 @@ authors = [
 ]
 keywords = ["kafka", "producer", "streaming", "swpc", "space-weather"]
 dependencies = [
-  "stellar-harvest-ie-models",
   "kafka-python>=2.0.2",
   "requests>=2.28.1",
   "pydantic>=1.10.2",
-  "typer[all]>=0.7.0"
+  "typer[all]>=0.7.0",
+  "stellar-harvest-ie-config",
+  "stellar-harvest-ie-models",
 ]
 
 [project.scripts]
