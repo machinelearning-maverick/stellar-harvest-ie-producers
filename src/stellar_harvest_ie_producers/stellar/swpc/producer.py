@@ -3,8 +3,12 @@ from stellar_harvest_ie_config.utils.log_decorators import log_io
 from stellar_harvest_ie_stream.clients import get_producer
 from stellar_harvest_ie_stream.settings import settings
 
-from .client import fetch_latest_planetary_kp_index
-from .parser import parse_latest_planetary_kp_index
+from stellar_harvest_ie_producers.stellar.swpc.client import (
+    fetch_latest_planetary_kp_index,
+)
+from stellar_harvest_ie_producers.stellar.swpc.parser import (
+    parse_latest_planetary_kp_index,
+)
 
 
 @log_io()
