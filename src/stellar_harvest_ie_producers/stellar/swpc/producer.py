@@ -20,5 +20,5 @@ def publish_latest_planetary_kp_index() -> None:
     producer = get_producer()
     kp_index = fetch_latest_planetary_kp_index()
     parsed_pk_index = parse_latest_planetary_kp_index(kp_index)
-    producer.send(settings.swpc_topic, parsed_pk_index)
+    producer.send(settings.swpc_topic, parsed_pk_index.model_dump())
     producer.flush()
