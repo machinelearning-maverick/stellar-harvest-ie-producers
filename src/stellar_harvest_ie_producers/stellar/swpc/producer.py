@@ -1,3 +1,5 @@
+import logging
+
 from stellar_harvest_ie_config.utils.log_decorators import log_io
 
 from stellar_harvest_ie_stream.clients import get_producer
@@ -10,6 +12,8 @@ from stellar_harvest_ie_producers.stellar.swpc.parser import (
     parse_latest_planetary_kp_index,
 )
 
+logger = logging.getLogger(__name__)
+
 
 @log_io()
 def publish_latest_planetary_kp_index() -> None:
@@ -20,5 +24,6 @@ def publish_latest_planetary_kp_index() -> None:
     producer = get_producer()
     kp_index = fetch_latest_planetary_kp_index()
     parsed_pk_index = parse_latest_planetary_kp_index(kp_index)
-    producer.send(settings.swpc_topic, parsed_pk_index.model_dump())
+    logger.debug(f"Parsed KP Index: {parsed_pk_index}")
+    producer.send(settings.swpc_topic, parsed_pk_index.model_dump(mode="json"))
     producer.flush()
