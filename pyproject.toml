@@ -19,6 +19,7 @@ dependencies = [
   "typer[all]>=0.7.0",
   "stellar-harvest-ie-config",
   "stellar-harvest-ie-models",
+  "stellar-harvest-ie-stream",
 ]
 
 [project.scripts]
