@@ -20,6 +20,7 @@ dependencies = [
   "stellar-harvest-ie-config>=0.1.2",
   "stellar-harvest-ie-models>=0.3.1",
   "stellar-harvest-ie-stream>=0.1.2",
+  "schedule>=1.2.0",
 ]
 
 [project.scripts]
