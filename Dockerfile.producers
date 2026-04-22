@@ -37,5 +37,7 @@ RUN --mount=type=secret,id=env \
       python-dotenv
 
 # Layer 3: app code / entrypoint (rarely changes)
-COPY src/stellar_harvest_ie_deployment/run_swpc_scheduler.py .
-CMD ["python", "run_swpc_scheduler.py"]
+CMD ["sh-swpc-scheduler"]
+
+# ENTRYPOINT ["sh-swpc-scheduler"]
+# CMD [] # default args, empty
