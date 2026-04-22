@@ -32,9 +32,9 @@ RUN --mount=type=secret,id=env \
       "stellar-harvest-ie-models==${SHIE_MODELS_VERSION}" \
       "stellar-harvest-ie-stream==${SHIE_STREAM_VERSION}" \
       "stellar-harvest-ie-producers==${SHIE_PRODUCERS_VERSION}" \
-      kafka-python \
-      schedule \
-      python-dotenv
+      "kafka-python>=2.0.2" \
+      "schedule>=1.2.0" \
+      "python-dotenv>=1.0.0"
 
 # Layer 3: app code / entrypoint (rarely changes)
 CMD ["sh-swpc-scheduler"]
