@@ -24,7 +24,8 @@ dependencies = [
 ]
 
 [project.scripts]
-sh-producer = "stellar_harvest_ie_producers.stellar.swpc.cli:app"
+sh-swpc-producer = "stellar_harvest_ie_producers.stellar.swpc.cli:app"
+sh-swpc-scheduler = "stellar_harvest_ie_producers.schedulers.swpc_scheduler:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
