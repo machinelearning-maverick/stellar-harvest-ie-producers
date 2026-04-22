@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "stellar-harvest-ie-producers"
-version = "0.2.3"
+version = "0.2.4"
 description = "Ingestion module for real-time data sources (e.g., NOAA SWPC) into Kafka"
 readme = "README.md"
 requires-python = ">=3.11"
@@ -17,13 +17,15 @@ dependencies = [
   "requests>=2.28.1",
   "pydantic>=1.10.2",
   "typer[all]>=0.7.0",
+  "schedule>=1.2.0",
   "stellar-harvest-ie-config>=0.1.2",
   "stellar-harvest-ie-models>=0.3.1",
   "stellar-harvest-ie-stream>=0.1.2",
 ]
 
 [project.scripts]
-sh-producer = "stellar_harvest_ie_producers.stellar.swpc.cli:app"
+sh-swpc-producer = "stellar_harvest_ie_producers.stellar.swpc.cli:app"
+sh-swpc-scheduler = "stellar_harvest_ie_producers.schedulers.swpc_scheduler:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
